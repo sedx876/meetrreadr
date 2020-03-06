@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'books#index'
+  root 'static#welcome'
   
   resources :books do
     resources :comments

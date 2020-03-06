@@ -18,7 +18,7 @@ class BooksController < ApplicationController
         @book = Book.new(book_params)
         @book.save
         flash.notice = "'#{@book.title}' has been added to the list!"
-        redirect_back_or_to book_path(@book)
+        redirect_to book_path(@book)
       end
 
       def edit
