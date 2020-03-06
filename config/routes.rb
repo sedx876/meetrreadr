@@ -10,7 +10,9 @@ Rails.application.routes.draw do
  resources :user_sessions, only: [ :new, :create, :destroy ]
 
 get 'login'  => 'user_sessions#new', :as => "login"
+post 'login' => 'user_sessions#create'
 get 'logout' => 'user_sessions#destroy', :as => "logout"
-get 'signup' => 'users#new', :as => "signup"
+get 'signup', to: 'users#new'
+post 'signup' => 'users#create'
 get 'welcome' => 'static#welcome', :as => "welcome"
 end

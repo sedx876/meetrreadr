@@ -1,4 +1,4 @@
-<button><h1>Books</h1></button>
+<h2>Books</h2>
 
 <ul id="books">
   <% @books.each do |book| %>
@@ -13,3 +13,5 @@
 <button><%= link_to "Add a Book", new_book_path, class: "new_book" %></button>
 <br><br>
 <button><%= link_to "Book Tag List", tags_path %></button>
+
+

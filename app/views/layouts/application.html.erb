@@ -12,7 +12,7 @@
   <body>
   <nav class="border fixed">
   <div class="nav-brand">
-    <h4><a href="#">Readr//Meetr</a></h4>
+    <h4><%= link_to "Readr//Meetr", root_path %></a></h4>
   </div>
   <div class="collapsible">
     <input id="collapsible2" type="checkbox" name="collapsible2">
@@ -25,15 +25,14 @@
     </button>
     <div class="collapsible-body">
       <ul class="inline">
-      <%# <% if logged_in? %>
-          <%# <%= "Logged in as #{current_user.email}" %>
-          <%# <%= link_to "(logout)", logout_path %> %> %> %>
-        <li><a href="#">Documentation</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Github</a></li>
-        <%# <% else %>
-          <%# <%= link_to "(login)", login_path %> %>
-        <%# <% end %> %> %>
+      
+          
+        <li><%= link_to "Log Out", logout_path %></li>
+        <li><%= link_to "Log In", login_path %> </li>
+        <li><%= link_to "Sign Up", signup_path %></li>
+      
+         
+      
       </ul>
     </div>
   </div>

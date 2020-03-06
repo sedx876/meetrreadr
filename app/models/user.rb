@@ -1,3 +1,6 @@
 class User < ApplicationRecord
     has_many :books
+    validates_presence_of :username, :password, :email
+    validates_uniqueness_of :username, :email
+    has_secure_password
 end
