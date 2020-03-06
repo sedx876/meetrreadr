@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'books#index'
   
-  resources :books
+  resources :books do
+    resources :comments
+  end
+ resources :tags 
+ resources :users
+ resources :static
+ resources :user_sessions, only: [ :new, :create, :destroy ]
+
+get 'login'  => 'user_sessions#new', :as => "login"
+get 'logout' => 'user_sessions#destroy', :as => "logout"
+get 'signup' => 'users#new', :as => "signup"
+get 'welcome' => 'static#welcome', :as => "welcome"
 end
