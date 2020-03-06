@@ -1,0 +1,15 @@
+<button><h1>Books</h1></button>
+
+<ul id="books">
+  <% @books.each do |book| %>
+    <li>
+      <button><%= link_to book.title, book_path(book), class: 'book_title' %></button>
+
+    </li>
+    <br>
+  <% end %>
+</ul>
+
+<button><%= link_to "Add a Book", new_book_path, class: "new_book" %></button>
+<br><br>
+<%# <button><%= link_to "Book Tag List", tags_path %></button> %>

@@ -4,12 +4,41 @@
     <title>Meetrreadr</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <nav class="border fixed">
+  <div class="nav-brand">
+    <h4><a href="#">Readr//Meetr</a></h4>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible2" type="checkbox" name="collapsible2">
+    <button>
+      <label for="collapsible2">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+      <%# <% if logged_in? %>
+          <%# <%= "Logged in as #{current_user.email}" %>
+          <%# <%= link_to "(logout)", logout_path %> %> %> %>
+        <li><a href="#">Documentation</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Github</a></li>
+        <%# <% else %>
+          <%# <%= link_to "(login)", login_path %> %>
+        <%# <% end %> %> %>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <p class="flash"><%= flash.notice %></p>
     <%= yield %>
   </body>
 </html>
