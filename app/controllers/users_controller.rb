@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  has_many :books
     def new 
       @user = User.new
     end
@@ -19,6 +19,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password, :password_confirmation)
+        params.require(:user).permit(:username, :email, :password, :password_confirmation, :book_id)
     end
 end

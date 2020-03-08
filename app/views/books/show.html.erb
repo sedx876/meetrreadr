@@ -12,12 +12,12 @@
 <%= image_tag @book.image.url %></p>
 <% end %>
 <p><%= @book.description %></p>
-<button><h3>Comments:  (<%= @book.comments.size %>)</h3></button>
+<button class="btn-block"><h3>Comments:  (<%= @book.comments.size %>)</h3></button>
 <%= render partial: 'books/comment', collection: @book.comments %>
 <%= render partial: 'comments/form' %>
 <button><%= link_to "Back to Book List", books_path %></button>
 <br><br>
 
-<button><%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Really delete the book?"} %></button>
+<button class="btn-danger"><%= link_to "Delete", book_path(@book), method: :delete, data: {confirm: "Really delete the book?"} %></button>
 <br><br>
-<button><%= link_to "Edit", edit_book_path(@book) %></button>
+<button class="btn-success"><%= link_to "Edit", edit_book_path(@book) %></button>

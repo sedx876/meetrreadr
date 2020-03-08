@@ -53,6 +53,8 @@ class BooksController < ApplicationController
       end
 
       def users_books
+        @user_id = current_user.id
+        @books = Book.users_books(@user_id) 
       end
   
       def destroy 
