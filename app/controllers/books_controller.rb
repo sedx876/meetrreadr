@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-    before_action :current_user, :authentication_required
+    before_action :current_user, only: [:new, :edit, :delete] 
+    before_action :require_login, only: [:new, :edit, :delete]
 
     def index 
         @books = Book.all 
@@ -49,6 +50,9 @@ class BooksController < ApplicationController
         @book.update(book_params)
         flash.notice = "'#{@book.title}' has been update!"
         redirect_to book_path(@book)
+      end
+
+      def users_books
       end
   
       def destroy 
