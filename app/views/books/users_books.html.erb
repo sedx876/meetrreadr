@@ -1,15 +1,6 @@
 <h1> My Books</h1>
-
 <ul>
-
-
-    <% @books.each do |book| %>
-<button><li><%= link_to book.title, book_path(book), class: 'book_title' %></li></button>
-      
-    
-          
-        </a>
-
-    <% end %>
-
+  <% @books.each do |book| %>
+    <button><li><%= link_to book.title, book_path(book), class: 'book_title' %></li></button>
+  <% end %>
 </ul>

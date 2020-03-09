@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-    before_action :current_user, only: [:new, :edit, :delete] 
-    before_action :require_login, only: [:new, :edit, :delete, :index]
+  before_action :current_user, only: [:new, :edit, :delete] 
+  before_action :require_login, only: [:new, :edit, :delete, :index]
 
     def index 
         @books = Book.all.ordered

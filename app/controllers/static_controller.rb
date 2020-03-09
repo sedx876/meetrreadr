@@ -1,5 +1,6 @@
 class StaticController < ApplicationController
 
-    def welcome
-    end
+  def welcome
+  end
+  
 end

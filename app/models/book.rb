@@ -1,10 +1,10 @@
 class Book < ApplicationRecord
+  belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, dependent: :destroy
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
-  belongs_to :user
   scope :ordered, -> { order('created_at DESC') }
 
   def tag_list
@@ -22,4 +22,5 @@ class Book < ApplicationRecord
   def self.users_books(user)
     where(user_id: user)
   end
+
 end
