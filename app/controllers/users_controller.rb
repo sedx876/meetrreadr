@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  has_many :books
+  
     def new 
       @user = User.new
     end

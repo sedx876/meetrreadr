@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
     before_action :current_user, only: [:new, :edit, :delete] 
-    before_action :require_login, only: [:new, :edit, :delete]
+    before_action :require_login, only: [:new, :edit, :delete, :index]
 
     def index 
         @books = Book.all.ordered
@@ -43,13 +43,22 @@ class BooksController < ApplicationController
 
       def edit
         @book = Book.find(params[:id])
+        if authorize(@book)
+          render :edit
+        else
+          redirect_to root_path
+        end
       end
   
       def update
         @book = Book.find(params[:id])
+        if authorize(@book)
         @book.update(book_params)
         flash.notice = "'#{@book.title}' has been update!"
         redirect_to book_path(@book)
+        else
+          redirect_to books_path
+        end
       end
 
       def users_books

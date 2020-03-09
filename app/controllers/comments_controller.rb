@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-
+  before_action :current_user, only: [:create] 
+    before_action :require_login, only: [:create]
     def create
         @comment = Comment.new(comment_params)
         @comment.book_id = params[:book_id]
