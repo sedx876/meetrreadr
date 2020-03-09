@@ -11,10 +11,6 @@ class BooksController < ApplicationController
         @comment = Comment.new
         @comment.book_id = @book.id
       end
-  
-    #   def new
-    #     @book = Book.new
-    #   end
 
     def new 
         @book = current_user.books.build 
@@ -30,16 +26,6 @@ class BooksController < ApplicationController
             render :new
         end
       end
-  
-    #   def create
-    #     @book = Book.user.id.build(book_params)
-    #     #@book = Book.new(book_params)
-    #     #@book = @user.book.build
-    #     #@book.user.id = @book.id
-    #     @book.save
-    #     flash.notice = "'#{@book.title}' has been added to the list!"
-    #     redirect_to book_path(@book.id)
-    #   end
 
       def edit
         @book = Book.find(params[:id])
@@ -72,6 +58,7 @@ class BooksController < ApplicationController
         flash.notice = "'#{@book.title}' has been deleted!"
         redirect_to books_path 
       end
+      
   
       private
   

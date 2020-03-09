@@ -4,21 +4,19 @@ class UsersController < ApplicationController
       @user = User.new
     end
 
-    
-
     def create
-        @user = User.new(user_params)
+      @user = User.new(user_params)
         if @user.save
-            log_in(@user)
+          log_in(@user)
             redirect_to books_path
         else
-            render :new
+          render :new
         end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:username, :email, :password, :password_confirmation, :book_id)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation, :book_id)
     end
 end
