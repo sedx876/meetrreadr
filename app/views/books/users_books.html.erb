@@ -4,7 +4,7 @@
 
 
     <% @books.each do |book| %>
-<button><li><%= link_to book.title, users_books_path(book), class: 'book_title' %></li></button>
+<button><li><%= link_to book.title, book_path(book), class: 'book_title' %></li></button>
       
     
           
