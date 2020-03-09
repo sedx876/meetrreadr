@@ -1,25 +1,27 @@
-# README
+# Readr//Meetr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Readr//Meetr is an app for avid readers to share their book recommendations with others that share similiar reading interests.
 
-Things you may want to cover:
+This app was built with Rails for my 3 project at FlatIron School in the Online Software Engineering Track.
 
-* Ruby version
+## Build
+* CRUD structured app
 
-* System dependencies
+## Instructions
+* Fork this repo and clone down to machine
+  
+  ```
+  $ cd .../meetrreadr
+  $ bundle install
+  $ rails db:migrate
+  $ rails s
+  ```
+* Open app in browser by going to http://localhost:3000
+  
+## Contributing 
 
-* Configuration
+This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Database creation
+## License
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# meetrreadr
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
