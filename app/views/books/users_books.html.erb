@@ -1,13 +1,13 @@
-<h1><%= current_user.username %>'s Books</h1>
+<h1> My Books</h1>
 
 <ul>
 
 
     <% @books.each do |book| %>
-
+<button><li><%= link_to book.title, users_books_path(book), class: 'book_title' %></li></button>
       
-        <a href="/books/<%= book.id %>">
-          <%= image_tag @book.image.url %>
+    
+          
         </a>
 
     <% end %>

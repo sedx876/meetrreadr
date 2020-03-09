@@ -28,5 +28,5 @@ get '/login', to: 'user_sessions#new'
 # get 'signup', to: 'users#new'
 # post 'signup' => 'users#create'
 get 'welcome' => 'static#welcome', :as => "welcome"
-get '/users_books', to: 'books#users_books'
+get '/users_books' => 'books#users_books', :as => "users_books"
 end

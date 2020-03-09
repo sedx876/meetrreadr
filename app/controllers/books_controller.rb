@@ -3,7 +3,7 @@ class BooksController < ApplicationController
     before_action :require_login, only: [:new, :edit, :delete]
 
     def index 
-        @books = Book.all 
+        @books = Book.all.ordered
       end
   
       def show
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
 
       def users_books
         @user_id = current_user.id
-        @books = Book.users_books(@user_id) 
+        @books = Book.users_books(@user_id).ordered 
       end
   
       def destroy 
