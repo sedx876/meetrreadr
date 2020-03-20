@@ -18,4 +18,5 @@ post '/signup', to: 'users#create'
 get 'welcome' => 'static#welcome', :as => "welcome"
 get '/users_books' => 'books#users_books', :as => "users_books"
 get '/auth/:provider/callback', to: 'user_sessions#create'
+get '/search', to: 'books#search' #, :as => 'search_page' 
 end

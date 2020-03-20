@@ -1,4 +1,14 @@
 <h2>Books</h2>
+<br>
+
+<div>
+<h3>Search for a Book Title</h3>
+  <%= form_tag("/search", method: :get) do %>
+  <%= text_field_tag :search, "" %>
+  <%= submit_tag("Search") %>
+<% end %>
+</div>
+
 <ul id="books">
   <% @books.each do |book| %>
     <button><li><%= link_to book.title, book_path(book), class: 'book_title' %></li></button>

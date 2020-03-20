@@ -3,9 +3,10 @@ class BooksController < ApplicationController
   before_action :require_login, only: [:new, :edit, :delete, :index]
 
     def index 
-        @books = Book.all.ordered
-      end
-  
+        @books = Book.all
+    end
+
+    
       def show
         @book = Book.find(params[:id])
         @comment = Comment.new
@@ -19,7 +20,7 @@ class BooksController < ApplicationController
 
       def create 
         @book = current_user.books.build(book_params)
-        @book.user_id = current_user.id
+        #@book.user_id = current_user.id
         if @book.save 
             redirect_to book_path(@book) 
         else
@@ -51,6 +52,8 @@ class BooksController < ApplicationController
         @user_id = current_user.id
         @books = Book.users_books(@user_id).ordered 
       end
+
+     
   
       def destroy 
         @book = Book.find(params[:id])
@@ -59,10 +62,15 @@ class BooksController < ApplicationController
         redirect_to books_path 
       end
       
+      def search
+        @books = Book.search(params[:search])
+        render :index
+      end
   
       private
   
       def book_params
-        params.require(:book).permit(:title, :author, :description, :tag_list, :image, :user_id)
+        params.require(:book).permit(:title, :author, :description, :tag_list, :image, :user_id, :search)
       end
+
 end

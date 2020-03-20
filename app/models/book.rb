@@ -4,8 +4,12 @@ class Book < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, dependent: :destroy
   has_attached_file :image
+  validates_presence_of :title, :author, :description
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   scope :ordered, -> { order('created_at DESC') }
+  scope :search, -> (search) { where("title LIKE ?", "%" + search + "%")}
+  
+  
 
   def tag_list
     self.tags.collect do |tag|
@@ -22,5 +26,8 @@ class Book < ApplicationRecord
   def self.users_books(user)
     where(user_id: user)
   end
+
+  
+
 
 end
